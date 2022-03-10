@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { IPost } from "./post.model";
-import { PostService } from "./post.service";
+import { faCalendar, faComments, faUser } from "@fortawesome/free-solid-svg-icons";
+import { IPost } from "../post.model";
+import { PostService } from "../post.service";
 
 @Component({
     selector: 'lgcc-single-post',
@@ -10,11 +11,17 @@ import { PostService } from "./post.service";
 })
 export class SinglePostComponent implements OnInit{
     post!: IPost;
+    faComments = faComments
+    faCalendar = faCalendar
+    faUser = faUser
 
     constructor(private route: ActivatedRoute, private postService: PostService) {
     }
     
     ngOnInit(){
        this.post = this.route.snapshot.data['post']; 
+       this.postService.getPostComments(this.post.id).subscribe(c => {
+           this.post.comments = c;
+       })
     }
 }

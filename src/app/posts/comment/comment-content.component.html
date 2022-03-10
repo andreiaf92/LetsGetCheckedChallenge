@@ -1,0 +1,15 @@
+<div class="col-md-12 p-3">
+    <div class="d-flex">
+        <div class="text-username col-5">{{comment.user}}</div>
+        <p class="col-5" (click)="this.showReplyForm = !this.showReplyForm"  *ngIf="!this.showReplyForm" role="button"><fa-icon [icon]="faReply"></fa-icon> {{"reply" | uppercase}}</p>
+        <p class="col-5" (click)="this.showReplyForm = !this.showReplyForm" *ngIf="this.showReplyForm" role="button"><fa-icon [icon]="faClose"></fa-icon> {{"cancel" | uppercase}}</p>
+    </div>
+    <p class="meta">{{comment.date | date:'fullDate'}}</p>
+    <p class="text">{{comment.content}}</p>
+    <p (click)="show = true" *ngIf="!show && comment.children" role="button">Show replies ({{comment.children?.length}})</p>
+    <hr>
+    <lgcc-add-comment *ngIf="this.showReplyForm" [commentId]="comment.id" [postId]="comment.postId"></lgcc-add-comment>
+    <div *ngIf="show">
+        <lgcc-comment-content *ngFor="let child of comment.children" [comment]="child"></lgcc-comment-content>
+    </div>
+</div>

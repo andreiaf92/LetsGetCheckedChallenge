@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError, Observable, of } from "rxjs";
 import { IPost, IComment } from ".";
 
@@ -23,6 +23,13 @@ export class PostService {
       return this.http.get<IComment[]>(`/api/posts/${id}/comments`)
       .pipe(catchError(this.handleError<IComment[]>('getPostComments')))
     }
+
+    saveComment(comment: IComment, id:number){
+      const options = { headers: new HttpHeaders({'Content-Type':'application/json'})}
+      return this.http.post<IComment>(`/api/posts/${id}/comments`, comment, options)
+      .pipe(catchError(this.handleError<IComment>('saveComment')))
+    }
+
 
     private handleError<T>(operation = 'operation', result?: T){
         return (error:any) : Observable<T> => {

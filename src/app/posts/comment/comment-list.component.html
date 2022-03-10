@@ -1,0 +1,29 @@
+<div class="container" *ngIf="comments ? comments.length > 0 : false">
+    <div class="row">
+        <div class="comments col-md-12 p-5 pb-2">
+            <h4 class="title">Comments:</h4>
+            <lgcc-comment-content *ngFor="let comment of comments" [comment]="comment" [show]="false"></lgcc-comment-content>
+        </div>
+    </div>
+    <div class="row">
+        <div class="comments col-md-12 p-5 pt-2">
+            <h4 class="title">Leave a Comment:</h4>
+            <lgcc-add-comment [commentId]="null" [postId]="postId"></lgcc-add-comment>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="comments ? comments.length == 0 : true">
+    <div class="row">
+        <div class="comments col-md-12 p-5">
+            <h4 class="title">Sem Comentários</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="comments col-md-12 p-5">
+            <h4 class="title">Leave a Comment:</h4>
+            <lgcc-add-comment [commentId]="null" [postId]="postId"></lgcc-add-comment>
+        </div>
+    </div>
+</div>
+

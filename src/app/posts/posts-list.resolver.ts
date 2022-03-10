@@ -8,7 +8,7 @@ export class PostsListResolver implements Resolve<any>{
 
     }
 
-    resolve(route: ActivatedRouteSnapshot) {
+    resolve() {
         return this.postService.getPosts()
     }
 }

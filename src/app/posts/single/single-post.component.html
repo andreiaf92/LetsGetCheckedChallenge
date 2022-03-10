@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row py-5">
+        <div class="blog-post col-md-12 p-5">
+            <h2 class="title">{{post.title}}</h2>
+            <div class="d-flex d-flex mb-3 mt-2">
+                <div class="meta">
+                    <fa-icon [icon]="faCalendar"></fa-icon>
+                    {{post.publish_date | date:'fullDate'}}
+                </div>
+                <div class="meta px-5">
+                    <fa-icon [icon]="faUser"></fa-icon>
+                    {{post.author}}
+                </div>
+                <div class="meta">
+                    <fa-icon [icon]="faComments"></fa-icon>
+                    {{post.comments?.length}} 
+                </div>
+            </div>
+            <p class="text" [innerHTML]="post.content"></p>
+        </div>
+    </div>
+</div>
+<lgcc-comments-list [comments]="post.comments" [postId]="post.id"></lgcc-comments-list>

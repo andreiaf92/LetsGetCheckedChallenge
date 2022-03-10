@@ -1,1 +1,115 @@
 /* You can add global styles to this file, and also import other style files */
+//  BACKGROUNDS COLORS   //
+$bgColor: #f6f6f6; // background color
+$menuBgColor: #002e40; // menus/sidebar background color
+$contentBgColor: #e8e8e8; // content background color
+
+//  MENU  //
+$highlightColor: #fff; // color of icons and text on hover
+
+//  FONTS  //
+$font: "Open Sans",
+sans-serif;
+$secundaryFont: "Montserrat";
+
+$titleFontColor: #5c8fa3; // title and subtitle color
+$textFontColor: #8a888a; // text color
+
+$bigFontSize: 18px; // title font size
+$midFontSize: 13px; // subtitle font size
+$smallFontSize: 11px; // subtitle font size
+
+$titleFontWeight: bold; // title font weight
+$textFontWeight: 400; // text font weight
+$metaFontWeight: 600;
+
+body {
+  background-color: $contentBgColor;
+  color: $titleFontColor;
+  font-size: $midFontSize;
+  min-height: 100vh;
+
+  nav {
+    background-color: $menuBgColor;
+  }
+
+  a:hover {
+    color: $highlightColor;
+    text-decoration: none;
+  }
+
+  a {
+    color: $titleFontColor !important;
+  }
+
+  button {
+    background-color: transparent;
+    border-color: $titleFontColor;
+    border: solid;
+    color: $titleFontColor;
+    text-transform: uppercase;
+    font-weight: $titleFontWeight;
+    font-size: $midFontSize;
+    padding: 7px 15px;
+  }
+
+  input {
+    background-color: transparent;
+    border-color: $titleFontColor;
+    border-radius: 50px;
+    border: solid;
+    color: $titleFontColor;
+    font-weight: $titleFontWeight;
+    font-size: $midFontSize;
+    height: 32px;
+
+    i {
+      font-size: $midFontSize;
+      margin-right: 7px;
+    }
+  }
+
+  .title {
+    font: {
+      family: $font;
+      weight: $titleFontWeight;
+      size: $bigFontSize;
+    }
+
+    color: $titleFontColor;
+  }
+
+  .text {
+    font: {
+      family: $font;
+      weight: $textFontWeight;
+      size: $midFontSize;
+    }
+
+    color: $textFontColor;
+  }
+
+  .meta {
+    font: {
+      family: $font;
+      weight: $metaFontWeight;
+      size: $smallFontSize;
+    }
+
+    color: $textFontColor;
+  }
+
+  .blog-post,
+  .comments {
+    background-color: $bgColor;
+    
+    .text-username {
+      font: {
+        family: $font;
+        weight: $titleFontWeight;
+        size: $midFontSize;
+      }
+    }
+  }
+
+}
